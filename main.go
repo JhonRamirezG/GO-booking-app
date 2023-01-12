@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 	var conferenceName = "Go conference"
 	const conferenceTickets = 50
-	var remainingTickets = 50
+	var remainingTickets uint = 50
 
 	fmt.Printf("Welcome to %v booking application\n", conferenceName)
 	fmt.Printf("We have a total %v of tickets and %v are still available.\n", conferenceTickets, remainingTickets)
@@ -14,7 +14,7 @@ func main() {
 	var firstName string
 	var lastName string
 	var email string
-	var userTickets int
+	var userTickets uint
 
 	fmt.Println("Please enter your name:")
 	fmt.Scan(&firstName)
@@ -28,6 +28,8 @@ func main() {
 	fmt.Println("Enter Your Number of tickets:")
 	fmt.Scan(&userTickets)
 
-	fmt.Printf("Thank you %v %v for booking %v tickets. You will recive a confirmation email at %v\n", firstName, lastName, userTickets, email)
+	remainingTickets = remainingTickets - userTickets
 
+	fmt.Printf("Thank you %v %v for booking %v tickets. You will recive a confirmation email at %v\n", firstName, lastName, userTickets, email)
+	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
 }
